@@ -1,6 +1,6 @@
-INSERT INTO `role` (`id`, `name`, `pid`, `status`, `remark`, `ename`, `create_time`, `update_time`) VALUES
-(1, '管理员', 0, 1, '', '', now(), now()),
-(2, '普通用户', 0, 1, '', '', now(), now());
+INSERT INTO `role` (`id`, `name`, `pid`, `status`, `remark`, `create_time`, `update_time`) VALUES
+(1, '管理员', 0, 1, '',  now(), now()),
+(2, '普通用户', 0, 1, '', now(), now());
 
 INSERT INTO `role_user` (`role_id`, `user_id`) VALUES
 (1, '1'),
