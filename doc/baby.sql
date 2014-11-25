@@ -64,3 +64,26 @@ CREATE TABLE `user` (
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE `app` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL DEFAULT '' COMMENT '应用名称',
+  `url` varchar(256) NOT NULL DEFAULT '' COMMENT '应用url 类似 /Admin/Index/index',
+  `module` varchar(50) NOT NULL DEFAULT '' COMMENT '模块名',
+  `module_node_id` smallint(6) NOT NULL COMMENT '模块对应的node表id',
+  `module_title` varchar(30) NOT NULL COMMENT '模块标题',
+  `controller` varchar(50) NOT NULL DEFAULT '' COMMENT '控制器名',
+  `controller_node_id` smallint(6) NOT NULL COMMENT '控制器对应node表id',
+  `controller_name` varchar(30) NOT NULL COMMENT '控制器标题',
+  `action` varchar(50) NOT NULL COMMENT '操作名称',
+  `action_node_id` smallint(6) NOT NULL COMMENT '操作对应node表id',
+  `action_name` varchar(30) NOT NULL COMMENT '操作标题',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态 1可用 0 不可用',
+  `create_time` int(10) DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(10) unsigned DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
