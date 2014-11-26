@@ -87,3 +87,14 @@ CREATE TABLE `app` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+
+CREATE TABLE `role_app` (
+  `role_id` smallint(6) unsigned NOT NULL COMMENT '角色role表主键id',
+  `role_name` varchar(20) NOT NULL COMMENT '角色名称',
+  `app_ids` text NOT NULL COMMENT '对应app应用表主键id的集合',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '角色应用状态默认1可用0禁用',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '角色应用创建时间',
+  `update_time` int(10) NOT NULL DEFAULT '0' COMMENT '角色应用更新时间',
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
