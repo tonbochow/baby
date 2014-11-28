@@ -98,3 +98,7 @@ CREATE TABLE `role_app` (
   `update_time` int(10) NOT NULL DEFAULT '0' COMMENT '角色应用更新时间',
   PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `role_user`
+ADD COLUMN `role_name`  varchar(20) NULL COMMENT '角色名称' AFTER `user_id`;
