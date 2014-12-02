@@ -102,3 +102,34 @@ CREATE TABLE `role_app` (
 
 ALTER TABLE `role_user`
 ADD COLUMN `role_name`  varchar(20) NULL COMMENT '角色名称' AFTER `user_id`;
+
+
+ALTER TABLE `user`
+MODIFY COLUMN `id`  int(10) UNSIGNED NULL AUTO_INCREMENT COMMENT '用户表主键' FIRST ,
+ADD COLUMN `backend_login`  tinyint(1) NULL DEFAULT 0 COMMENT '是否允许后台登陆1允许0不允许' AFTER `is_superuser`;
+
+ALTER TABLE `role`
+ADD COLUMN `backend_login`  tinyint(1) NULL DEFAULT 0 COMMENT '是否允许登陆后台1允许0不允许' AFTER `status`;
+
+
+CREATE TABLE `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户表主键',
+  `name` varchar(20) NOT NULL COMMENT '用户登录名字母数字或下划线',
+  `password` char(32) NOT NULL COMMENT '用户密码',
+  `email` varchar(40) NOT NULL COMMENT '用户email',
+  `status` tinyint(1) DEFAULT '1' COMMENT '用户状态0不可用1可用',
+  `nickname` varchar(30) DEFAULT '' COMMENT '用户昵称',
+  `qq` varchar(15) DEFAULT '' COMMENT '用户qq',
+  `mobile` char(11) DEFAULT '' COMMENT '用户手机号码',
+  `headimg` varchar(256) DEFAULT '' COMMENT '用户头像',
+  `is_superuser` tinyint(1) DEFAULT '0' COMMENT '是否超级用户0否1是',
+  `backend_login` tinyint(1) DEFAULT '0' COMMENT '是否允许后台登陆1允许0不允许',
+  `lastlogin_date` int(10) DEFAULT '0' COMMENT '最后一次登录时间',
+  `register_ip` char(15) DEFAULT '' COMMENT '注册ip地址',
+  `lastlogin_ip` char(15) DEFAULT '' COMMENT '最后一次登录ip',
+  `regtime` int(10) DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
