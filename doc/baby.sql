@@ -133,3 +133,24 @@ CREATE TABLE `user` (
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `master` (
+  `name` varchar(20) NOT NULL DEFAULT '' COMMENT '站长真实姓名',
+  `nickname` varchar(30) NOT NULL DEFAULT '' COMMENT '站长别名',
+  `sex` tinyint(1) NOT NULL DEFAULT '1' COMMENT '性别1男默认0女',
+  `birthday` int(10) NOT NULL DEFAULT '0' COMMENT '站长出生日期',
+  `qq` varchar(15) DEFAULT '' COMMENT '站长qq',
+  `weixin` varchar(20) DEFAULT '' COMMENT '站长微信号',
+  `mobile` varchar(11) DEFAULT '' COMMENT '站长手机',
+  `province` int(10) DEFAULT '0' COMMENT '省id',
+  `city` int(10) DEFAULT '0' COMMENT '市id',
+  `town` int(10) DEFAULT '0' COMMENT '县id',
+  `address` varchar(100) DEFAULT '' COMMENT '详细地址',
+  `photo` varchar(255) DEFAULT '' COMMENT '站长头像地址',
+  `remark` text COMMENT '站长简介',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '更新时间',
+  `show_flag` tinyint(1) DEFAULT '1' COMMENT '是否显示1显示0不显示'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
