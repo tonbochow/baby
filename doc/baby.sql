@@ -154,3 +154,6 @@ CREATE TABLE `master` (
   `show_flag` tinyint(1) DEFAULT '1' COMMENT '是否显示1显示0不显示'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `master`
+ADD COLUMN `id`  smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'master表主键' FIRST ,
+ADD PRIMARY KEY (`id`);
