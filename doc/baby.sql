@@ -153,3 +153,7 @@ CREATE TABLE `master` (
   `update_time` int(10) DEFAULT '0' COMMENT '更新时间',
   `show_flag` tinyint(1) DEFAULT '1' COMMENT '是否显示1显示0不显示'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `master`
+ADD COLUMN `id`  smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT FIRST ,
+ADD PRIMARY KEY (`id`);
