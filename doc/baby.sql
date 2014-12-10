@@ -157,3 +157,15 @@ CREATE TABLE `master` (
 ALTER TABLE `master`
 ADD COLUMN `id`  smallint(6) UNSIGNED NOT NULL AUTO_INCREMENT FIRST ,
 ADD PRIMARY KEY (`id`);
+
+CREATE TABLE `article_category` (
+  `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT COMMENT '日志分类主键id',
+  `cate_name` varchar(80) NOT NULL DEFAULT '' COMMENT '日志分类名称',
+  `keyword` varchar(40) DEFAULT '' COMMENT '日志分类关键字描述',
+  `description` varchar(255) DEFAULT '' COMMENT '日志分类详细描述',
+  `order` tinyint(4) NOT NULL DEFAULT '1' COMMENT '日志分类顺序',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '日志分类状态默认1可用0不可用',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '日志分类创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '日志分类更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
