@@ -169,3 +169,8 @@ CREATE TABLE `article_category` (
   `update_time` int(10) DEFAULT '0' COMMENT '日志分类更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `article_category`
+CHANGE COLUMN `order` `sort`  tinyint(4) NOT NULL DEFAULT 1 COMMENT '日志分类顺序' AFTER `description`;
+
