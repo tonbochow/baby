@@ -174,3 +174,17 @@ CREATE TABLE `article_category` (
 ALTER TABLE `article_category`
 CHANGE COLUMN `order` `sort`  tinyint(4) NOT NULL DEFAULT 1 COMMENT '日志分类顺序' AFTER `description`;
 
+
+CREATE TABLE `article` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '日志主键',
+  `title` varchar(60) NOT NULL DEFAULT '' COMMENT '日志标题',
+  `keyword` varchar(20) DEFAULT '' COMMENT '日志关键字',
+  `description` varchar(255) DEFAULT '' COMMENT '日志简单描述',
+  `content` text NOT NULL COMMENT '日志详细内容',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '日志状态1显示0不显示',
+  `view_times` int(10) DEFAULT '0' COMMENT '日志浏览次数',
+  `allow_comment` tinyint(1) DEFAULT '1' COMMENT '日志是否允许评论1允许0禁止',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '日志创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '日志更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
