@@ -188,3 +188,7 @@ CREATE TABLE `article` (
   `update_time` int(10) DEFAULT '0' COMMENT '日志更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `article`
+ADD COLUMN `category_id`  smallint(6) UNSIGNED NOT NULL COMMENT '日志所属分类id' AFTER `content`;
