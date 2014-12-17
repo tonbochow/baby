@@ -1,4 +1,4 @@
-#main-nav {
+﻿#main-nav {
     margin-left: 1px;
 }
 
@@ -43,7 +43,7 @@
 }
 
 #main-nav.nav-tabs.nav-stacked > li {
-    margin-bottom: 4px;
+    /*margin-bottom: 4px;*/
 }
 
 /*定义二级菜单样式*/

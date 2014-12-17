@@ -192,3 +192,19 @@ CREATE TABLE `article` (
 
 ALTER TABLE `article`
 ADD COLUMN `category_id`  smallint(6) UNSIGNED NOT NULL COMMENT '日志所属分类id' AFTER `content`;
+
+
+CREATE TABLE `article_comment` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '日志评论主键',
+  `article_id` int(10) NOT NULL COMMENT '对应日志article表主键id',
+  `article_title` varchar(60) NOT NULL COMMENT '对应日志表article标题title',
+  `content` varchar(255) NOT NULL COMMENT '评论内容',
+  `status` tinyint(1) DEFAULT '1' COMMENT '评论状态:1显示默认0不显示',
+  `parent_id` int(10) DEFAULT '0' COMMENT '父评论id',
+  `user_id` int(10) DEFAULT '0' COMMENT '用户user表id',
+  `user_name` varchar(20) DEFAULT '' COMMENT '用户user表name',
+  `ip_address` varchar(15) NOT NULL DEFAULT '' COMMENT '评论用户ip地址',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '用户评论时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '用户评论更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
