@@ -208,3 +208,30 @@ CREATE TABLE `article_comment` (
   `update_time` int(10) DEFAULT '0' COMMENT '用户评论更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `talk` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '说说表主键',
+  `content` text NOT NULL COMMENT '说说内容',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '说说状态1显示0不显示',
+  `view_times` int(10) DEFAULT '0' COMMENT '说说浏览次数',
+  `allow_comment` tinyint(1) NOT NULL DEFAULT '1' COMMENT '说说是否允许评论1允许0禁止',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '说说创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '说说更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `talk_comment` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '说说评论主键id',
+  `talk_id` int(10) NOT NULL COMMENT '说说表主键id',
+  `content` varchar(255) NOT NULL DEFAULT '' COMMENT '说说评论内容',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '说说评论状态1显示0不显示',
+  `user_id` int(10) DEFAULT NULL COMMENT '说说评论者用户id对应user表id',
+  `user_name` varchar(20) DEFAULT '' COMMENT '说说评论者用户名对应user表name',
+  `ip_address` varchar(15) DEFAULT '' COMMENT '说说评论者ip地址',
+  `parent_id` int(10) DEFAULT NULL COMMENT '说说评论父评论id',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '说说评论创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '说说评论更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
