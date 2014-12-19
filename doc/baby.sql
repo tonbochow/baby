@@ -235,3 +235,19 @@ CREATE TABLE `talk_comment` (
   `update_time` int(10) DEFAULT '0' COMMENT '说说评论更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `music` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '音乐表主键id',
+  `music_name` varchar(80) NOT NULL DEFAULT '' COMMENT '音乐名称',
+  `music_url` varchar(255) NOT NULL DEFAULT '' COMMENT '音乐文件url',
+  `exttype` varchar(20) DEFAULT '' COMMENT '音乐文件类型如audio/mp3',
+  `extfield` char(32) DEFAULT '' COMMENT '音乐文件的md5值',
+  `description` varchar(255) DEFAULT '' COMMENT '音乐文件详细描述',
+  `list_order` tinyint(4) DEFAULT NULL COMMENT '音乐文件顺序',
+  `status` tinyint(1) DEFAULT '1' COMMENT '音乐文件状态1可用0不可用',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '音乐文件生成时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '音乐文件更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
