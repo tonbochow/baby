@@ -251,3 +251,49 @@ CREATE TABLE `music` (
   `update_time` int(10) DEFAULT '0' COMMENT '音乐文件更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `album` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '相册album表主键',
+  `title` varchar(80) NOT NULL DEFAULT '' COMMENT '相册标题描述',
+  `thumb_url` varchar(255) NOT NULL DEFAULT '' COMMENT '相册封面图片url',
+  `description` varchar(255) DEFAULT '' COMMENT '相册描述',
+  `list_order` tinyint(3) DEFAULT NULL COMMENT '相册显示排序',
+  `status` tinyint(1) DEFAULT '1' COMMENT '相册是否显示1公开0不公开',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '相册创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '相册更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `photo` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '相片主键id',
+  `photo_name` varchar(80) NOT NULL DEFAULT '' COMMENT '相片名',
+  `photo_url` varchar(255) NOT NULL DEFAULT '' COMMENT '相片url',
+  `exttype` varchar(20) DEFAULT '' COMMENT '相片扩展类型',
+  `extfield` char(32) DEFAULT '' COMMENT '相片md5值',
+  `description` varchar(256) DEFAULT '' COMMENT '相片描述',
+  `list_order` tinyint(3) DEFAULT NULL COMMENT '相片在相册的排序',
+  `status` tinyint(1) DEFAULT '1' COMMENT '相片状态1公开0不公开',
+  `view_times` int(10) DEFAULT '0' COMMENT '相片浏览次数',
+  `allow_comment` tinyint(1) DEFAULT '1' COMMENT '相片允许评论1允许0禁止',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '相片创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '相片更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `photo_comment` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '相片评论表主键id',
+  `photo_id` int(10) NOT NULL COMMENT '相片表id',
+  `content` varchar(255) NOT NULL DEFAULT '' COMMENT '相片评论内容',
+  `status` tinyint(1) DEFAULT '1' COMMENT '评论状态1公开0不公开',
+  `user_id` int(10) DEFAULT NULL COMMENT '用户表id',
+  `user_name` varchar(20) DEFAULT '' COMMENT '用户表name',
+  `ip_address` varchar(15) DEFAULT '' COMMENT '相片评论用户ip地址',
+  `parent_id` int(10) DEFAULT NULL COMMENT '父评论id',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '相片评论创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '相片评论更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
