@@ -297,3 +297,7 @@ CREATE TABLE `photo_comment` (
   `update_time` int(10) DEFAULT '0' COMMENT '相片评论更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `photo`
+ADD COLUMN `album_id`  mediumint(8) NOT NULL COMMENT '相册album表主键id' AFTER `id`;
