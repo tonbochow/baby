@@ -301,3 +301,7 @@ CREATE TABLE `photo_comment` (
 
 ALTER TABLE `photo`
 ADD COLUMN `album_id`  mediumint(8) NOT NULL COMMENT '相册album表主键id' AFTER `id`;
+
+
+ALTER TABLE `photo_comment`
+ADD COLUMN `album_id`  mediumint(8) NOT NULL COMMENT '相册表album主键id' AFTER `id`;
