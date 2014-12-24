@@ -305,3 +305,34 @@ ADD COLUMN `album_id`  mediumint(8) NOT NULL COMMENT '相册album表主键id' AF
 
 ALTER TABLE `photo_comment`
 ADD COLUMN `album_id`  mediumint(8) NOT NULL COMMENT '相册表album主键id' AFTER `id`;
+
+
+CREATE TABLE `video` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '视频表主键id',
+  `video_name` varchar(80) NOT NULL DEFAULT '' COMMENT '视频名',
+  `video_url` varchar(255) NOT NULL DEFAULT '' COMMENT '视频url',
+  `exttype` varchar(20) DEFAULT '' COMMENT '视频文件类型',
+  `extfield` char(32) DEFAULT '' COMMENT '视频md5值',
+  `description` varchar(255) DEFAULT '' COMMENT '视频描述',
+  `list_order` int(10) NOT NULL DEFAULT '1' COMMENT '视频显示排序',
+  `status` tinyint(1) DEFAULT '1' COMMENT '视频状态1公开0不公开',
+  `view_times` int(10) DEFAULT '0' COMMENT '视频浏览次数',
+  `allow_comment` tinyint(1) DEFAULT '1' COMMENT '视频是否允许评论1允许0禁止',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '视频创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '视频更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `video_comment` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '视频评论表主键id',
+  `video_id` int(10) NOT NULL COMMENT '视频表主键id',
+  `content` varchar(255) NOT NULL DEFAULT '' COMMENT '视频评论内容',
+  `status` tinyint(1) DEFAULT '1' COMMENT '视频评论状态1公开0不公开',
+  `user_id` int(10) DEFAULT NULL COMMENT '视频评论者用户表id',
+  `user_name` varchar(20) DEFAULT '' COMMENT '视频评论者用户名',
+  `ip_address` varchar(15) DEFAULT '' COMMENT '视频评论者ip地址',
+  `parent_id` int(10) DEFAULT NULL COMMENT '视频评论夫评论',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '视频评论创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '视频评论更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
