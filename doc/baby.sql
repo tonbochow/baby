@@ -336,3 +336,16 @@ CREATE TABLE `video_comment` (
   `update_time` int(10) DEFAULT '0' COMMENT '视频评论更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `website` (
+  `name` varchar(20) NOT NULL DEFAULT '' COMMENT '网站名',
+  `record` varchar(60) NOT NULL DEFAULT '' COMMENT '网站备案号',
+  `website_email` varchar(60) NOT NULL DEFAULT '' COMMENT '站长电子邮箱',
+  `copyright` varchar(60) NOT NULL DEFAULT '' COMMENT '网站版权信息',
+  `seo_title` varchar(60) NOT NULL DEFAULT '' COMMENT '网站seo标题',
+  `seo_keyword` varchar(120) NOT NULL DEFAULT '' COMMENT '网站seo关键字',
+  `seo_description` varchar(255) NOT NULL DEFAULT '' COMMENT '网站seo描述',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '更新时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
