@@ -349,3 +349,47 @@ CREATE TABLE `website` (
   `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '创建时间',
   `update_time` int(10) DEFAULT '0' COMMENT '更新时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `message` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '留言板表主键id',
+  `content` varchar(255) NOT NULL DEFAULT '' COMMENT '留言板内容',
+  `status` tinyint(1) DEFAULT '1' COMMENT '留言状态1显示0不显示',
+  `view_times` int(10) DEFAULT '0' COMMENT '留言浏览次数',
+  `user_id` int(10) DEFAULT NULL COMMENT '留言用户id',
+  `user_name` varchar(20) DEFAULT '' COMMENT '留言用户名',
+  `ip_address` varchar(15) DEFAULT '' COMMENT '留言用户ip地址',
+  `parent_id` int(10) DEFAULT NULL COMMENT '留言父id',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '留言创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '留言更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='留言板表';
+
+
+CREATE TABLE `message_reply` (
+  `id` int(10) NOT NULL COMMENT '留言回复表主键',
+  `message_id` int(10) NOT NULL COMMENT '对应留言板表主键id',
+  `content` varchar(255) NOT NULL DEFAULT '' COMMENT '留言回复内容',
+  `status` tinyint(1) DEFAULT '1' COMMENT '留言回复状态1显示0不显示',
+  `user_id` int(10) DEFAULT NULL COMMENT '留言回复用户id',
+  `user_name` varchar(20) DEFAULT '' COMMENT '留言回复用户名',
+  `ip_address` varchar(15) DEFAULT '' COMMENT '留言回复用户ip地址',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '留言回复创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '留言回复更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='留言回复表';
+
+CREATE TABLE `content` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '内容表主键id',
+  `title` varchar(60) NOT NULL DEFAULT '' COMMENT '内容表标题',
+  `type` tinyint(1) NOT NULL COMMENT '内容类型1(talk说说)2(article日志)3(album相册)4(video视频)',
+  `content` text COMMENT '内容',
+  `album_url` varchar(255) DEFAULT '' COMMENT '类型为相册时相册url',
+  `video_url` varchar(255) DEFAULT NULL COMMENT '内容为视频时视频url',
+  `status` tinyint(1) DEFAULT '1' COMMENT '内容状态1显示0不显示',
+  `view_times` int(10) DEFAULT '0' COMMENT '内容浏览次数',
+  `comment_times` int(10) DEFAULT '0' COMMENT '内容评论次数',
+  `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '内容创建时间',
+  `update_time` int(10) DEFAULT '0' COMMENT '内容更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='内容表(中间表)类型可为说说 日志 相册  视频等';
