@@ -393,3 +393,7 @@ CREATE TABLE `content` (
   `update_time` int(10) DEFAULT '0' COMMENT '内容更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='内容表(中间表)类型可为说说 日志 相册  视频等';
+
+
+ALTER TABLE `message_reply`
+MODIFY COLUMN `id`  int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '留言回复表主键' FIRST ;
