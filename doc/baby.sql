@@ -397,3 +397,8 @@ CREATE TABLE `content` (
 
 ALTER TABLE `message_reply`
 MODIFY COLUMN `id`  int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '留言回复表主键' FIRST ;
+
+
+ALTER TABLE `content`
+ADD COLUMN `tapv_id`  int(10) NOT NULL COMMENT '内容表对应的说说日志相册或视频表主键' AFTER `id`;
+
