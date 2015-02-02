@@ -3,8 +3,10 @@
  */
 
 body {
-  background-image: url('/upload/shatan.jpg');
+  /*background-image: url('/upload/shatan.jpg');*/
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size:100% 100%;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
 }

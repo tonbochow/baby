@@ -402,3 +402,12 @@ MODIFY COLUMN `id`  int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '留言回�
 ALTER TABLE `content`
 ADD COLUMN `tapv_id`  int(10) NOT NULL COMMENT '内容表对应的说说日志相册或视频表主键' AFTER `id`;
 
+
+
+ALTER TABLE `website`
+ADD COLUMN `background_img`  varchar(255) NULL DEFAULT '' COMMENT '网站背景图片' AFTER `seo_description`;
+
+ALTER TABLE `website`
+ADD COLUMN `front_page_num`  smallint(4) NULL DEFAULT 20 COMMENT '前台内容分页显示数量' AFTER `seo_description`,
+ADD COLUMN `back_page_num`  smallint(4) NULL DEFAULT 20 COMMENT '后台分页显示数量' AFTER `front_page_num`;
+
